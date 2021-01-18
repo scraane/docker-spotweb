@@ -129,3 +129,4 @@ rm -rf /var/cache/apk/* && \
 
 echo "Deployment done!"
 exec "$@"
+/usr/sbin/httpd -D FOREGROUND -f /etc/apache2/httpd.conf
