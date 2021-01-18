@@ -6,25 +6,25 @@ SSLWebConf=/etc/apache2/conf.d/spotweb_ssl.conf
 WebDir=/var/www/spotweb
 
 echo
-echo "Installing Spotweb webfiles from github:"
+echo "Lets see if we start new or already have an installation"
 cd ${WebDir}
 
 if [ -d ".git" ]; then
-    echo ".git folder excists. Lets update"
+    echo ".git folder exists. Assuming we have an installation. Lets update."
     git pull
 else 
-    echo ".git folder not found. Lets clone it now"
+    echo ".git folder not found. Lets clone it now."
     git clone https://github.com/spotweb/spotweb .
     git config pull.rebase false
 fi
 
 echo
-echo "Creating crontab to update Spotweb every 15 minutes"
+echo "Creating crontab to update Spotweb every 15 minutes."
 echo "#!/bin/sh" > /etc/periodic/15min/spotwebupdate
 echo "php /var/www/spotweb/retrieve.php" >> /etc/periodic/15min/spotwebupdate
 chmod a+x /etc/periodic/15min/spotwebupdate
 
-#starting cron
+echo "Starting cron"
 crond
 
 echo
@@ -125,4 +125,6 @@ rm -rf /var/cache/apk/* && \
 
 echo "Deployment done!"
 exec "$@"
+echo "Starting webserver"
 /usr/sbin/httpd -D FOREGROUND -f /etc/apache2/httpd.conf
+echo "All done :)"
