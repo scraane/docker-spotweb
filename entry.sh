@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 # /usr/sbin/httpd -D FOREGROUND -f /etc/apache2/httpd.conf
 
+echo "                __      __      __  ";
+echo "   ____  __  __/ /_    / /___  / /_ ";
+echo "  / __ \/ / / / __/_  / / __ \/ __ \";
+echo " / / / / /_/ / /_/ /_/ / /_/ / /_/ /";
+echo "/_/ /_/\__,_/\__/\____/\____/_.___/ ";
+echo "                                    ";
+
+
 WebConf=/etc/apache2/conf.d/spotweb.conf
 SSLWebConf=/etc/apache2/conf.d/spotweb_ssl.conf
 WebDir=/var/www/spotweb
