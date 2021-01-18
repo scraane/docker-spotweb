@@ -15,6 +15,7 @@ if [ -d ".git" ]; then
 else 
     echo ".git folder not found. Lets clone it now"
     git clone https://github.com/spotweb/spotweb .
+    git config pull.rebase false
 fi
 
 echo
