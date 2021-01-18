@@ -7,28 +7,23 @@ WebDir=/var/www/spotweb
 
 echo
 echo "Installing Spotweb webfiles from github:"
-git init ${WebDir}
 cd ${WebDir}
-git remote add origin https://github.com/spotweb/spotweb.git
 
-if [[ ! -z ${VERSION} ]]
-then
-  echo "Downloading Spotweb ${VERSION}:"
-  git pull origin ${VERSION}
-else
-  echo "Downloading Spotweb master"
-  git pull origin master
+if [ -d ".git" ]; then
+    echo ".git folder excists. Lets update"
+    git pull
+else 
+    echo ".git folder not found. Lets clone it now"
+    git clone https://github.com/spotweb/spotweb .
 fi
-
-echo
-echo "Updating Spotweb webfiles from github:"
-git pull ${WebDir}
 
 echo
 echo "Creating crontab to update Spotweb every 15 minutes"
 echo "#!/bin/sh" > /etc/periodic/15min/spotwebupdate
 echo "php /var/www/spotweb/retrieve.php" >> /etc/periodic/15min/spotwebupdate
 chmod a+x /etc/periodic/15min/spotwebupdate
+
+#starting cron
 crond
 
 echo
