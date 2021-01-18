@@ -29,6 +29,7 @@ echo "Creating crontab to update Spotweb every 15 minutes"
 echo "#!/bin/sh" > /etc/periodic/15min/spotwebupdate
 echo "php /var/www/spotweb/retrieve.php" >> /etc/periodic/15min/spotwebupdate
 chmod a+x /etc/periodic/15min/spotwebupdate
+crond
 
 echo
 case ${SSL} in
