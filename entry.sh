@@ -21,7 +21,16 @@ else
 fi
 
 echo
+echo "Updating Spotweb webfiles from github:"
+git pull ${WebDir}
 
+echo
+echo "Creating crontab to update Spotweb every 15 minutes"
+echo "#!/bin/sh" > /etc/periodic/15min/spotwebupdate
+echo "php /var/www/spotweb/retrieve.php" >> /etc/periodic/15min/spotwebupdate
+chmod a+x /etc/periodic/15min/spotifyupdate
+
+echo
 case ${SSL} in
   enabled)
     echo "Deploying apache config with SSL support:"
