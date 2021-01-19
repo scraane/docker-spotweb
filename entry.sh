@@ -135,4 +135,4 @@ echo "Deployment done!"
 exec "$@"
 echo "Starting webserver"
 /usr/sbin/httpd -D FOREGROUND -f /etc/apache2/httpd.conf
-echo "All done :)"
+echo "All done"
