@@ -10,14 +10,29 @@ echo
 echo "Lets see if we start new or already have an installation"
 cd ${WebDir}
 
-if [ -d ".git" ]; then
-    echo ".git folder exists. Assuming we have an installation. Lets update."
-    git pull
-else 
-    echo ".git folder not found. Lets clone it now."
-    git clone https://github.com/spotweb/spotweb .
-    git config pull.rebase false
+#if [ -d ".git" ]; then
+#    echo ".git folder exists. Assuming we have an installation. Lets update."
+#    git pull
+#else 
+#    echo ".git folder not found. Lets clone it now."
+#    git clone https://github.com/spotweb/spotweb .
+#    git config pull.rebase false
+#fi
+
+echo "Installing Spotweb webfiles from github:"
+git init ${WebDir}
+cd ${WebDir}
+git remote add origin https://github.com/spotweb/spotweb.git
+
+if [[ ! -z ${VERSION} ]]
+then
+  echo "Downloading Spotweb ${VERSION}:"
+  git pull origin ${VERSION}
+else
+  echo "Downloading Spotweb master"
+  git pull origin master
 fi
+
 
 echo
 echo "Creating crontab to update Spotweb every 15 minutes."
