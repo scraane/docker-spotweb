@@ -32,7 +32,7 @@ The following docker-compose.yml example correspondents to the above:
 ```
 services:
   spotweb:
-    image: jerheij/spotweb:latest
+    image: nutjob/spotweb:latest
     container_name: spotweb
     restart: always
     ports:
