@@ -43,7 +43,8 @@ services:
     volumes:
       - /local-storage-place:/var/www/spotweb
 ```
-
+#### Retrieve spots
+retrieve.php will run every 15 minutes using cron
 
 ### Variables
 | Variable | Function | Optional |
