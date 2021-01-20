@@ -1,5 +1,10 @@
 ## Spotweb container
 
+[![GitHub Source](https://img.shields.io/badge/github-source-ffb64c?style=flat-square&logo=github&logoColor=white&labelColor=757575)](https://github.com/scraane/spotweb)
+[![GitHub issues](https://img.shields.io/github/issues/scraane/spotweb?style=flat-square)](https://github.com/scraane/spotweb/issues)
+[![GitHub license](https://img.shields.io/github/license/scraane/spotweb?style=flat-square)](https://github.com/scraane/spotweb/blob/main/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/nutjob/spotweb?style=flat-square)](https://hub.docker.com/r/nutjob/spotweb)
+
 ### Sources
 Base image: [Alpine:latest](https://hub.docker.com/_/alpine/)
 Main software: [Spotweb](https://github.com/spotweb/spotweb)
